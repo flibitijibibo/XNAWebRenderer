@@ -1,0 +1,29 @@
+This is XNAWebRenderer, a portable webpage renderer for XNA games.
+
+Project Website: https://github.com/flibitijibibo/XNAWebRenderer
+
+License
+-------
+XNAWebRenderer is released under the zlib license. See LICENSE for details.
+
+Dependency Advisory
+-------------------
+XNAWebRenderer makes use of the Chromium Embedded Framework:
+
+https://en.wikipedia.org/wiki/Chromium_Embedded_Framework
+
+The dependency list of CEF is _huge_. If you find that you are unable to run
+the program, check the libcef file for libraries your system may not have.
+
+Developer Advisory
+------------------
+On GNU/Linux, CEF will crash if you do not have libcef.so preloaded before
+program execution. The bug report can be found here (marked as WONTFIX):
+
+https://bitbucket.org/chromiumembedded/cef/issues/1446/linux-crash-in-bitmapcontentlayerupdater#comment-20229311
+
+The solution is to use LD_PRELOAD to load the library before executing the
+MonoKickstart runtime. The change will look like this, for example:
+
+LD_PRELOAD="libcef.so"
+./XNAWebRenderer.bin.x86_64
