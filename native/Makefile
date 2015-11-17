@@ -9,12 +9,12 @@ ARCH = $(shell uname -m)
 CEF = cef_binary_3.2526.1332.gf7d9457_linux64
 CEFCMD = \
 	-I./$(CEF) \
-	$(CEF)/libcef_dll/flibitBuild/libcef_dll_wrapper.a \
+	$(CEF)/flibitBuild/libcef_dll/libcef_dll_wrapper.a \
 	$(CEF)/Release/libcef.$(TARGET)
 
 # Compiler
 ifeq ($(UNAME), Darwin)
-	CXX = clang++ -arch i386 -arch x86_64 -mmacosx-version-min=10.6
+	CXX = clang++ -mmacosx-version-min=10.6
 	TARGET = dylib
 	SUFFIX = osx
 else
