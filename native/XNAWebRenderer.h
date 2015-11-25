@@ -39,9 +39,7 @@ extern "C" {
 	#define DELEGATECALL
 #endif
 
-typedef void (DELEGATECALL *TextureUpdatedDelegate)(
-	const void*
-);
+typedef void (DELEGATECALL *TextureUpdatedDelegate)(const void*);
 
 EXPORTFN void XNAWR_Initialize(
 	char *argv0,
@@ -56,6 +54,8 @@ EXPORTFN void XNAWR_Shutdown();
 EXPORTFN void XNAWR_Update();
 
 EXPORTFN void XNAWR_LoadURL(const char *URL);
+
+EXPORTFN void XNAWR_SetViewport(int width, int height);
 
 #undef EXPORTFN
 #undef DELEGATECALL

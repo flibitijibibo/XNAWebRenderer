@@ -93,5 +93,8 @@ public static class XNAWebRenderer
 			string URL
 	);
 
+	[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
+	public static extern void XNAWR_SetViewport(int width, int height);
+
 	#endregion
 }

@@ -181,3 +181,10 @@ void XNAWR_LoadURL(const char *URL)
 {
 	browser->GetMainFrame()->LoadURL(URL);
 }
+
+void XNAWR_SetViewport(int width, int height)
+{
+	GLRenderHandler* handler = (GLRenderHandler*) client->handler.get();
+	handler->w = width;
+	handler->h = height;
+}
