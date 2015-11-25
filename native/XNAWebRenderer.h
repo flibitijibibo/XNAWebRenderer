@@ -42,7 +42,6 @@ extern "C" {
 typedef void (DELEGATECALL *TextureUpdatedDelegate)(const void*);
 
 EXPORTFN void XNAWR_Initialize(
-	char *argv0,
 	const char *initialURL,
 	TextureUpdatedDelegate callback,
 	int width,

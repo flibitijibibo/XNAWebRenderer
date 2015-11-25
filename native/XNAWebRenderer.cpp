@@ -125,7 +125,6 @@ static CefRefPtr<GLClient> client;
 static CefRefPtr<CefBrowser> browser;
 
 void XNAWR_Initialize(
-	char *argv0,
 	const char *initialURL,
 	TextureUpdatedDelegate callback,
 	int width,
@@ -133,7 +132,7 @@ void XNAWR_Initialize(
 ) {
 	if (refcount == 0)
 	{
-		CefMainArgs args(1, &argv0);
+		CefMainArgs args;
 		CefSettings settings;
 		settings.windowless_rendering_enabled = true;
 		CefString(&settings.browser_subprocess_path).FromASCII(PROCPATH);

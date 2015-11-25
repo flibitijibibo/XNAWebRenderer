@@ -43,37 +43,8 @@ public static class XNAWebRenderer
 
 	#region Public Static Methods
 
-	/* It is strongly recommended that you get the argv0 path like so:
-	 *
-	 * string os = SDL2.SDL.SDL_GetPlatform();
-	 * string exePath = AppDomain.CurrentDomain.FriendlyName;
-	 * if (os.Equals("Linux"))
-	 * {
-	 *	exePath = exePath.Replace("exe", "bin.x86");
-	 *	if (IntPtr.Size == 8)
-	 *	{
-	 *		exePath += "_64";
-	 *	}
-	 * }
-	 * else if (os.Equals("Mac OS X"))
-	 * {
-	 *	exePath = exePath.Replace("exe", "bin.osx");
-	 * }
-	 * else if (!os.Equals("Windows"))
-	 * {
-	 *	throw new NotSupportedException("Unhandled SDL2 platform!");
-	 * }
-	 * string result = Path.Combine(
-	 *	AppDomain.CurrentDomain.BaseDirectory,
-	 *	exePath
-	 * );
-	 *
-	 * -flibit
-	 */
 	[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
 	public static extern void XNAWR_Initialize(
-		[MarshalAs(UnmanagedType.LPStr)]
-			string argv0,
 		[MarshalAs(UnmanagedType.LPStr)]
 			string initialURL,
 		TextureUpdatedDelegate callback,
