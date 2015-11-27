@@ -27,3 +27,9 @@ MonoKickstart runtime. The change will look like this, for example:
 
 LD_PRELOAD="libcef.so"
 ./XNAWebRenderer.bin.x86_64
+
+On Mac OSX, CEF will crash the Mono runtime by sending the program signals
+that crash the garbage collector threads. At the moment, the current
+workaround is to use reference counting rather than signals for the GC:
+
+MONO_DEBUG=explicit-null-checks ./XNAWebRenderer.bin.osx
