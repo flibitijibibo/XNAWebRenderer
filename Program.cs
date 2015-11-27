@@ -10,8 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 class Program : Game
 {
-	private const string executable = "XNAWebRenderer.bin.x86_64";
-
 	private SpriteBatch spriteBatch;
 	private Texture2D texture;
 	private byte[] texBuffer;
@@ -50,7 +48,6 @@ class Program : Game
 		texBuffer = new byte[1280 * 720 * 4];
 		textureUpdated = TextureUpdated;
 		XNAWebRenderer.XNAWR_Initialize(
-			executable,
 			"http://www.google.com/",
 			textureUpdated,
 			1280,
