@@ -13,6 +13,10 @@ ELSEIF(APPLE)
 	SET(CMAKE_OSX_DEPLOYMENT_TARGET 10.6)
 	SET(CMAKE_EXECUTABLE_SUFFIX ".bin.osx")
 	SET(CEFLIB "cef") # TODO: CEF OSX name!
+	# install_name_tool -change
+	# "@executable_path/Chromium Embedded Framework"
+	# "@executable_path/../Frameworks/Chromium Embedded Framework.framework/Chromium Embedded Framework"
+	# libXNAWebRenderer.dylib
 ELSEIF(CMAKE_SIZEOF_VOID_P MATCHES "8")
 	SET(CMAKE_EXECUTABLE_SUFFIX ".bin.x86_64")
 	SET(CEFLIB "cef")
@@ -32,5 +36,7 @@ ADD_LIBRARY(XNAWebRenderer SHARED "XNAWebRenderer.cpp")
 TARGET_LINK_LIBRARIES(XNAWebRenderer ${CEFWRAP} ${CEFLIB})
 
 # cefprocess.exe
-ADD_EXECUTABLE(cefprocess "cefprocess.cpp")
-TARGET_LINK_LIBRARIES(cefprocess ${CEFWRAP} ${CEFLIB})
+IF(NOT APPLE)
+	ADD_EXECUTABLE(cefprocess "cefprocess.cpp")
+	TARGET_LINK_LIBRARIES(cefprocess ${CEFWRAP} ${CEFLIB})
+ENDIF()

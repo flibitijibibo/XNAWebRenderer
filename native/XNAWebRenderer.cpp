@@ -39,7 +39,7 @@
 #ifdef _WIN32
 #define PROCPATH "cefprocess.exe"
 #elif __APPLE__
-#define PROCPATH "./cefprocess.bin.osx"
+/* Nah -flibit #define PROCPATH "./cefprocess.bin.osx" */
 #elif __linux__
 #ifdef __x86_64__
 #define PROCPATH "./cefprocess.bin.x86_64"
@@ -135,7 +135,9 @@ void XNAWR_Initialize(
 		CefMainArgs args;
 		CefSettings settings;
 		settings.windowless_rendering_enabled = true;
+#ifndef __APPLE__
 		CefString(&settings.browser_subprocess_path).FromASCII(PROCPATH);
+#endif
 		if (!CefInitialize(args, settings, NULL, NULL))
 		{
 			assert(0 && "CefInitialize failed!");
