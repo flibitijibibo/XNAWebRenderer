@@ -26,7 +26,7 @@ ELSE()
 ENDIF()
 
 # Chromium Directories/Files
-SET(CEFFOLDER "${CMAKE_SOURCE_DIR}/cef_binary_3.2526.1332.gf7d9457_linux64")
+SET(CEFFOLDER "${CMAKE_SOURCE_DIR}/cef_binary_3.2526.1361.g456ea5a_linux64")
 SET(CEFWRAP "${CEFFOLDER}/flibitBuild/libcef_dll/libcef_dll_wrapper.a")
 INCLUDE_DIRECTORIES(${CEFFOLDER})
 LINK_DIRECTORIES("${CEFFOLDER}/Release")
