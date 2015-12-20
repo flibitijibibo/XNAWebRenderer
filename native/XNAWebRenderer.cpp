@@ -135,6 +135,9 @@ void XNAWR_Initialize(
 		CefMainArgs args;
 		CefSettings settings;
 		settings.windowless_rendering_enabled = true;
+#ifdef __linux__
+		settings.no_sandbox = true;
+#endif
 #ifndef __APPLE__
 		CefString(&settings.browser_subprocess_path).FromASCII(PROCPATH);
 #endif
